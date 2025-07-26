@@ -1,14 +1,15 @@
+from flask import Flask, send_file
 from waifu import Waifu
 
-def main():
-    waifu = Waifu()
+app = Flask(__name__)
+waifu = Waifu()
+waifu.initialise(...)
 
-    waifu.initialise(user_input_service='whisper',
-                 chatbot_service='openai',
-                 tts_service='elevenlabs', output_device=8)
+@app.route("/")
+def index():
+    return "Waifu is ready to chat!"
 
-    while True:
-        waifu.conversation_cycle()
-
-if __name__ == "__main__":
-    main()
+@app.route("/speak")
+def speak():
+    waifu.conversation_cycle()
+    return send_file("output.mp3", mimetype="audio/mpeg")
