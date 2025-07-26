@@ -11,3 +11,6 @@ click
 itsdangerous
 Werkzeug
 gtts
+sounddevice
+soundfile
+python-dotenv
