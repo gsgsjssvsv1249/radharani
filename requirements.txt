@@ -5,3 +5,8 @@ python-dotenv
 numpy
 SpeechRecognition
 gunicorn
+jinja2
+click
+itsdangerous
+Werkzeug
+gtts
