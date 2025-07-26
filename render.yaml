@@ -1,4 +1,10 @@
-build:
-  commands:
-    - apt-get update
-    - apt-get install -y libportaudio2 portaudio19-dev
+services:
+  - type: web
+    name: waifu-voice-app
+    env: python
+    buildCommand: |
+      apt-get update && apt-get install -y portaudio19-dev
+      pip install -r requirements.txt
+    startCommand: gunicorn main:app
+    plan: starter
+    region: oregon
