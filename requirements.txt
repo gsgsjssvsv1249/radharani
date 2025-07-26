@@ -2,6 +2,7 @@ flask
 openai
 requests
 python-dotenv
+elevenlabs
 numpy
 SpeechRecognition
 gunicorn
